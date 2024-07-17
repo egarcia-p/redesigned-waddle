@@ -18,4 +18,21 @@ class Find
 
     result
   end
+
+  # Find smallest difference given an array of Team objects
+  def self.find_team_smallest_difference(teams)
+    return "" if teams.empty?
+
+    min_difference = 1000 # Assumes there is no larger goal difference than 1000
+    result = ""
+    # Check each object and update min_difference
+    teams.each do |team|
+      if (team.favor - team.against).abs < min_difference
+        min_difference = (team.favor - team.against).abs
+        result = team.name
+      end
+    end
+
+    result
+  end
 end
