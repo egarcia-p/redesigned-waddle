@@ -1,32 +1,80 @@
 # Redesigned::Waddle
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/redesigned/waddle`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a challenge in Ruby that calculates the smallest spread on a given "dat" file of weather days. Also it calculates the smallest goal difference in a list of teams also given in a "dat" file.
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
+### 1. Install Ruby
 
-    $ bundle add redesigned-waddle
+Install ruby accordign to your OS.
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+### 2. Bundle install
 
-    $ gem install redesigned-waddle
+In the command line, navigate to the root of the project and run the following command:
+
+```BASH
+bundle install
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+This project uses the thor [gem](https://rubygems.org/gems/thor).
 
-## Development
+### Show all available commands
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+The `help` command lists all the commands used for the project along with the corresponding descriptions:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+```BASH
+ruby lib/main.rb help
+```
 
-## Contributing
+### Run the program
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/redesigned-waddle.
+The `find_smallest_spread` command recieves an INPUT FILE and a SEPARATOR (optional), then outputs the smallest spread day in the input file.
+By default the separator is `BLANK SPACE`
+
+```BASH
+ruby lib/main.rb find_smallest_spread <INPUT_FILE>
+Example:
+ruby lib/main.rb find_smallest_spread path/to/file.txt
+```
+
+You can use a different separator such as `,`
+
+```BASH
+ruby lib/main.rb find_smallest_spread <INPUT_FILE> <SEPARATOR>
+Example:
+ruby lib/main.rb find_smallest_spread path/to/file.txt ","
+```
+
+The `find_team_smallest_difference` command recieves an INPUT FILE and a SEPARATOR (optional), then outputs the team with the smallest goal difference in the input file.
+By default the separator is `BLANK SPACE`
+
+```BASH
+ruby lib/main.rb find_team_smallest_difference <INPUT_FILE>
+Example:
+ruby lib/main.rb find_team_smallest_difference path/to/file.txt
+```
+
+You can use a different separator such as `,`
+
+```BASH
+ruby lib/main.rb find_team_smallest_difference <INPUT_FILE> <SEPARATOR>
+Example:
+ruby lib/main.rb find_team_smallest_difference path/to/file.txt ","
+```
+
+## Testing
+
+This project uses the rspec [gem](https://rubygems.org/gems/rspec/versions/3.4.0?locale=en).
+
+### Executing tests for all specs
+
+In the command line, navigate to the root of the project and run the following command:
+
+```BASH
+rspec --format doc
+```
 
 ## License
 
